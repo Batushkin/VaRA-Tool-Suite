@@ -62,7 +62,7 @@ class PhASARFTACheck(actions.ProjectStep):  # type: ignore
     def analyze(self) -> actions.StepResult:
         """This step performs the actual analysis with the correct flags."""
         # Define the output directory.
-        vara_result_folder = get_varats_result_folder(self.project)
+        #vara_result_folder = get_varats_result_folder(self.project)
 
         for binary in self.project.binaries:
             # Define empty success file
@@ -78,8 +78,9 @@ class PhASARFTACheck(actions.ProjectStep):  # type: ignore
             opt_params = [
                 "-vara-PFA",
                 "-S",
+                "-enable-new-pm=0",
                 "-vara-FAR",
-                f"-vara-report-outfile={vara_result_folder}/{result_file}",
+                f"-vara-report-outfile={result_file}",
                 str(bc_target_file),
             ]
 
@@ -94,6 +95,8 @@ class PhASARFTACheck(actions.ProjectStep):  # type: ignore
                     self.__experiment_handle, self.project, FAR
                 )
             )
+
+        return actions.StepResult.OK
 
 
 class PhASARTaintAnalysis(VersionExperiment, shorthand="PTA"):
@@ -131,7 +134,7 @@ class PhASARTaintAnalysis(VersionExperiment, shorthand="PTA"):
         fm_path = fm_provider.get_feature_model_path(project.version_of_primary)
 
         project.cflags += [
-            "-O1", "-Xclang", "-disable-llvm-optzns", "-fvara-feature",
+            "-O1", "-Xclang", "-disable-llvm-optzns", "-fvara-feature", "-fPIC",
             "-fvara-fm-path=" + str(fm_path), "-g"
         ]
 
