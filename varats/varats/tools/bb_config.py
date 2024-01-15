@@ -73,6 +73,7 @@ def update_projects(
         'varats.projects.cpp_projects.opencv',
         'varats.projects.cpp_projects.poppler',
         'varats.projects.cpp_projects.z3',
+        'varats.projects.cpp_projects.simplus',
         'varats.projects.cpp_projects.ect',
         'varats.projects.cpp_projects.lepton',
         'varats.projects.cpp_projects.hyteg',
