@@ -12,9 +12,7 @@ from benchbuild.extensions import compiler, run, time
 from benchbuild.utils import actions
 from benchbuild.utils.cmd import opt
 
-from varats.data.reports.feature_analysis_report import (
-    FeatureAnalysisReport as FAR,
-)
+from varats.data.reports.feature_analysis_report import FeatureAnalysisReport as FAR
 from varats.experiment.experiment_util import (
     exec_func_with_pe_error_handler,
     VersionExperiment,
