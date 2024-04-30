@@ -25,7 +25,7 @@ class FeatureModelNotFound(FileNotFoundError):
 class FeatureModelProvider(Provider):
     """Provider for accessing project related FeatureModels."""
 
-    fm_repository = "https://github.com/Batushkin/ConfigurableSystems.git"
+    fm_repository = "https://gitlab.kit.edu/kit/kastel/sdq/stud/abschlussarbeiten/masterarbeiten/ma-hristo-klechorov/ConfigurableSystems.git"
 
     @classmethod
     def create_provider_for_project(
